@@ -1,0 +1,26 @@
+{
+    "name": "log-util",
+    "version": "1.0.0",
+    "description": "node log utility",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vivaxy/log-util.git"
+    },
+    "keywords": [
+        "log"
+    ],
+    "author": "vivaxy",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/vivaxy/log-util/issues"
+    },
+    "homepage": "https://github.com/vivaxy/log-util#readme",
+    "dependencies": {
+        "chalk": "^1.1.0",
+        "dateformat": "^1.0.11"
+    }
+}
