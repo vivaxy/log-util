@@ -16,6 +16,10 @@ node log utility
 ```
 var Log = require('log-util'),
     log = new Log(0);
+    // log = new Log('ERROR');
+    // log = new Log(Log.ERROR);
+    // log = new Log();
+    // log = new Log(4, 'HH:MM:ss');
     
 log.verbose('verbose', 0);
 log.debug('debug', 1);

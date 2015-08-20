@@ -83,8 +83,8 @@ p.log = function (level) {
  */
 p.find = function (key, value) {
     return levelArray.filter(function (o) {
-        return o[key] === value;
-    })[0];
+            return o[key] === value;
+        })[0] || {};
 };
 
 levelArray.forEach(function (o) {
