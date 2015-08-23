@@ -9,6 +9,8 @@
 
 node log utility
 
+![log-util](doc/log-util.png)
+
 ## usage
 
 `npm i --save log-util`

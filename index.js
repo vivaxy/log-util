@@ -20,7 +20,7 @@ var chalk = require('chalk'),
         {
             level: 1,
             string: 'debug',
-            color: 'white'
+            color: 'green'
         },
         {
             level: 2,
