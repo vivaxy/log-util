@@ -52,7 +52,6 @@ var chalk = require('chalk'),
 
 Log.prototype = p;
 p.constructor = Log;
-module.exports = Log;
 
 /**
  * main log method
@@ -124,3 +123,5 @@ levelArray.forEach(function (o) {
         return this.log.apply(this, args);
     };
 });
+
+module.exports = new Log();
