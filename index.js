@@ -1,7 +1,6 @@
 /**
  * @since 15-08-19 16:13
  * @author vivaxy
- * @inspired-by TJ Holowaychuk <tj@vision-media.ca>
  */
 'use strict';
 var chalk = require('chalk'),
@@ -46,9 +45,8 @@ var chalk = require('chalk'),
      * @constructor
      */
     Log = function Log(level, dateFormat) {
-        if (typeof level === 'string') level = this.find('string', level.toLowerCase()).level;
-        this.level = level || 0;
-        this.dateFormat = dateFormat || 'HH:MM:ss.l';
+        this.setLevel(level);
+        this.setDateFormat(dateFormat);
     },
     p = {};
 
@@ -85,6 +83,27 @@ p.find = function (key, value) {
     return levelArray.filter(function (o) {
             return o[key] === value;
         })[0] || {};
+};
+
+/**
+ * set level
+ * @param level
+ * @returns {p}
+ */
+p.setLevel = function (level) {
+    if (typeof level === 'string') level = this.find('string', level.toLowerCase()).level;
+    this.level = level || 0;
+    return this;
+};
+
+/**
+ * set date format
+ * @param dateFormat
+ * @returns {p}
+ */
+p.setDateFormat = function (dateFormat) {
+    this.dateFormat = dateFormat || 'HH:MM:ss.l';
+    return this;
 };
 
 levelArray.forEach(function (o) {

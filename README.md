@@ -32,6 +32,14 @@ log.error('error', 4);
 
 `new Log(level, dateFormat)`
 
+## api
+
+### `setLevel(level) => log`
+
+`level` is level id or level string
+
+### `setDateFormat(dateFormat) => log`
+
 ## log level
 
 ```
