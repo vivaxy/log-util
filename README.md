@@ -16,13 +16,7 @@ node log utility
 `npm i --save log-util`
 
 ```
-var Log = require('log-util'),
-    log = new Log(0);
-    // log = new Log('ERROR');
-    // log = new Log(Log.ERROR);
-    // log = new Log();
-    // log = new Log(4, 'HH:MM:ss');
-    
+var log = require('log-util');
 log.verbose('verbose', 0);
 log.debug('debug', 1);
 log.info('info', 2);
@@ -34,20 +28,56 @@ log.error('error', 4);
 
 ## api
 
-### `setLevel(level) => log`
+### `log.setLevel(level) => log`
 
 `level` is level id or level string
 
-### `setDateFormat(dateFormat) => log`
+### `log.setDateFormat(dateFormat) => log`
+
+### `new log.Log(0) => log`
+
+### `log.levelArray`
+
+containing level corresponding
+
+```
+levelArray = [
+    {
+        level: 0,
+        string: 'verbose',
+        color: 'gray'
+    },
+    {
+        level: 1,
+        string: 'debug',
+        color: 'green'
+    },
+    {
+        level: 2,
+        string: 'info',
+        color: 'cyan'
+    },
+    {
+        level: 3,
+        string: 'warn',
+        color: 'yellow'
+    },
+    {
+        level: 4,
+        string: 'error',
+        color: 'red'
+    }
+]
+```
 
 ## log level
 
 ```
-Log.VERBOSE === 0;
-Log.DEBUG === 1;
-Log.INFO === 2;
-Log.WARN === 3;
-Log.ERROR === 4;
+log.Log.VERBOSE === 0;
+log.Log.DEBUG === 1;
+log.Log.INFO === 2;
+log.Log.WARN === 3;
+log.Log.ERROR === 4;
 ```
 
 ## date format

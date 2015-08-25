@@ -124,4 +124,7 @@ levelArray.forEach(function (o) {
     };
 });
 
-module.exports = new Log();
+var log = new Log();
+log.Log = Log;
+log.levelArray = levelArray;
+module.exports = log;

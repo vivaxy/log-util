@@ -3,12 +3,39 @@
  * @author vivaxy
  */
 'use strict';
-var Log = require('../index.js'),
+var log = require('../index.js');
 
-    log = new Log(0);
+console.log('--- test output ---');
+log.verbose('verbose', log.Log.VERBOSE);
+log.debug('debug', log.Log.DEBUG);
+log.info('info', log.Log.INFO);
+log.warn('warn', log.Log.WARN);
+log.error('error', log.Log.ERROR);
 
-log.verbose('verbose', Log.VERBOSE);
-log.debug('debug', Log.DEBUG);
-log.info('info', Log.INFO);
-log.warn('warn', Log.WARN);
-log.error('error', Log.ERROR);
+console.log('--- test set level and set date format ---');
+log.setLevel(3);
+log.setDateFormat('yyyy-mm-dd');
+log.verbose('verbose', log.Log.VERBOSE);
+log.debug('debug', log.Log.DEBUG);
+log.info('info', log.Log.INFO);
+log.warn('warn', log.Log.WARN);
+log.error('error', log.Log.ERROR);
+
+console.log('--- test new instance ---');
+var anotherLog = new log.Log(1);
+anotherLog.verbose('verbose', log.Log.VERBOSE);
+anotherLog.debug('debug', log.Log.DEBUG);
+anotherLog.info('info', log.Log.INFO);
+anotherLog.warn('warn', log.Log.WARN);
+anotherLog.error('error', log.Log.ERROR);
+
+console.log('--- new instance should not affects others ---');
+log.verbose('verbose', log.Log.VERBOSE);
+log.debug('debug', log.Log.DEBUG);
+log.info('info', log.Log.INFO);
+log.warn('warn', log.Log.WARN);
+log.error('error', log.Log.ERROR);
+
+console.log('--- access to level array, new instances should not have levelArray ---');
+console.log(log.levelArray);
+console.log(anotherLog.levelArray);
