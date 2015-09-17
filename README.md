@@ -7,7 +7,7 @@
 
 [![NPM][nodei-image]][nodei-url]
 
-node log utility
+node log utility, only for terminal output
 
 ![log-util](doc/log-util.png)
 
