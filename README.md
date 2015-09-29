@@ -7,7 +7,7 @@
 
 [![NPM][nodei-image]][nodei-url]
 
-[![NPM][nodei-image]][nodei-url]
+[![NPM][nodei-dl-image]][nodei-url]
 
 node log utility, only for terminal output
 
