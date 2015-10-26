@@ -3,51 +3,51 @@
  * @author vivaxy
  */
 'use strict';
-var chalk = require('chalk'),
-    dateFormat = require('dateformat'),
+var chalk = require('chalk');
+var dateFormat = require('dateformat');
 
-    /**
-     * level object array
-     * @type {*[]}
-     */
-    levelArray = [
-        {
-            level: 0,
-            string: 'verbose',
-            color: 'gray'
-        },
-        {
-            level: 1,
-            string: 'debug',
-            color: 'green'
-        },
-        {
-            level: 2,
-            string: 'info',
-            color: 'cyan'
-        },
-        {
-            level: 3,
-            string: 'warn',
-            color: 'yellow'
-        },
-        {
-            level: 4,
-            string: 'error',
-            color: 'red'
-        }
-    ],
+/**
+ * level object array
+ * @type {*[]}
+ */
+var levelArray = [
+    {
+        level: 0,
+        string: 'verbose',
+        color: 'gray'
+    },
+    {
+        level: 1,
+        string: 'debug',
+        color: 'green'
+    },
+    {
+        level: 2,
+        string: 'info',
+        color: 'cyan'
+    },
+    {
+        level: 3,
+        string: 'warn',
+        color: 'yellow'
+    },
+    {
+        level: 4,
+        string: 'error',
+        color: 'red'
+    }
+];
 
-    /**
-     * Log
-     * @param level
-     * @param dateFormat
-     * @constructor
-     */
-    Log = function Log(level, dateFormat) {
-        this.setLevel(level);
-        this.setDateFormat(dateFormat);
-    };
+/**
+ * Log
+ * @param level
+ * @param dateFormat
+ * @constructor
+ */
+var Log = function Log(level, dateFormat) {
+    this.setLevel(level);
+    this.setDateFormat(dateFormat);
+};
 
 Log.prototype.constructor = Log;
 
