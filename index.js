@@ -47,18 +47,16 @@ var chalk = require('chalk'),
     Log = function Log(level, dateFormat) {
         this.setLevel(level);
         this.setDateFormat(dateFormat);
-    },
-    p = {};
+    };
 
-Log.prototype = p;
-p.constructor = Log;
+Log.prototype.constructor = Log;
 
 /**
  * main log method
  * @param level
- * @returns {p}
+ * @returns {Log}
  */
-p.log = function (level) {
+Log.prototype.log = function (level) {
     var time = chalk.gray('[' + dateFormat(new Date(), this.dateFormat) + ']'),
         args = Array.prototype.slice.call(arguments, 1),
         color = this.find('level', level).color;
@@ -78,7 +76,7 @@ p.log = function (level) {
  * @param value
  * @returns {*}
  */
-p.find = function (key, value) {
+Log.prototype.find = function (key, value) {
     return levelArray.filter(function (o) {
             return o[key] === value;
         })[0] || {};
@@ -87,9 +85,9 @@ p.find = function (key, value) {
 /**
  * set level
  * @param level
- * @returns {p}
+ * @returns {Log}
  */
-p.setLevel = function (level) {
+Log.prototype.setLevel = function (level) {
     if (typeof level === 'string') level = this.find('string', level.toLowerCase()).level;
     this.level = level || 0;
     return this;
@@ -98,9 +96,9 @@ p.setLevel = function (level) {
 /**
  * set date format
  * @param dateFormat
- * @returns {p}
+ * @returns {Log}
  */
-p.setDateFormat = function (dateFormat) {
+Log.prototype.setDateFormat = function (dateFormat) {
     this.dateFormat = dateFormat || 'HH:MM:ss.l';
     return this;
 };
@@ -117,7 +115,7 @@ levelArray.forEach(function (o) {
      * set methods to prototype
      * @returns {number|*}
      */
-    p[o.string] = function () {
+    Log.prototype[o.string] = function () {
         var args = arguments;
         Array.prototype.unshift.call(args, o.level);
         return this.log.apply(this, args);
