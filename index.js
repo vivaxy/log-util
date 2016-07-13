@@ -60,8 +60,11 @@ Log.prototype.log = function (level) {
     var time = chalk.gray('[' + dateFormat(new Date(), this.dateFormat) + ']');
     var args = Array.prototype.slice.call(arguments, 1);
     var color = this.find('level', level).color;
-    args = args.map(function (string) {
-        return chalk[color](string);
+    args = args.map(function (arg) {
+        if (typeof arg === 'object') {
+            return arg;
+        }
+        return chalk[color](arg);
     });
     args.unshift(time);
     if (level >= this.level) {
