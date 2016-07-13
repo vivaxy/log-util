@@ -62,7 +62,7 @@ Log.prototype.log = function (level) {
     var color = this.find('level', level).color;
     args = args.map(function (arg) {
         if (typeof arg === 'object') {
-            return arg;
+            arg = require('util').inspect(arg, {depth: null});
         }
         return chalk[color](arg);
     });
