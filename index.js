@@ -2,7 +2,10 @@
  * @since 15-08-19 16:13
  * @author vivaxy
  */
+
 'use strict';
+
+var util = require('util');
 var chalk = require('chalk');
 var dateFormat = require('dateformat');
 
@@ -44,7 +47,7 @@ var levelArray = [
  * @param dateFormat
  * @constructor
  */
-var Log = function Log(level, dateFormat) {
+var Log = function Log (level, dateFormat) {
     this.setLevel(level);
     this.setDateFormat(dateFormat);
 };
@@ -62,7 +65,10 @@ Log.prototype.log = function (level) {
     var color = this.find('level', level).color;
     args = args.map(function (arg) {
         if (typeof arg === 'object') {
-            arg = require('util').inspect(arg, {depth: null});
+            arg = util.inspect(arg, {
+                depth: null
+            });
+            console.log(arg);
         }
         return chalk[color](arg);
     });

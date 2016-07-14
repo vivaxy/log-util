@@ -39,3 +39,19 @@ log.error('error', log.Log.ERROR);
 console.log('--- access to level array, new instances should not have levelArray ---');
 console.log(log.levelArray);
 console.log(anotherLog.levelArray);
+
+console.log('--- output objects ---');
+log.verbose({
+    string: 'string',
+    number: 1,
+    boolean: true,
+    functions: function () {
+        log.debug('output function');
+    },
+    date: new Date(),
+    array: [1, 'string', false],
+    object: {
+        string: 'string',
+        number: 2
+    }
+});
