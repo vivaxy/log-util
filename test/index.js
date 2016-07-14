@@ -41,7 +41,7 @@ console.log(log.levelArray);
 console.log(anotherLog.levelArray);
 
 console.log('--- output objects ---');
-log.verbose({
+log.error({
     string: 'string',
     number: 1,
     boolean: true,

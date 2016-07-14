@@ -68,7 +68,6 @@ Log.prototype.log = function (level) {
             arg = util.inspect(arg, {
                 depth: null
             });
-            console.log(arg);
         }
         return chalk[color](arg);
     });
