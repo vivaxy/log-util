@@ -3,7 +3,6 @@
 [![NPM Version][npm-version-image]][npm-url]
 [![NPM Downloads][npm-downloads-image]][npm-url]
 [![MIT License][license-image]][license-url]
-[![Dependency Status][david-image]][david-url]
 
 [![NPM][nodei-image]][nodei-url]
 
@@ -91,8 +90,6 @@ see [https://github.com/felixge/node-dateformat](https://github.com/felixge/node
 [npm-downloads-image]: http://img.shields.io/npm/dm/log-util.svg?style=flat-square
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [license-url]: LICENSE
-[david-image]: http://img.shields.io/david/vivaxy/log-util.svg?style=flat-square
-[david-url]: https://david-dm.org/vivaxy/log-util
 [nodei-dl-image]: https://nodei.co/npm-dl/log-util.png?height=3
 [nodei-url]: https://nodei.co/npm/log-util/
 [nodei-image]: https://nodei.co/npm/log-util.svg?downloads=true&downloadRank=true&stars=true
