@@ -12,7 +12,7 @@ export let level: number = 1;
 
 function getIcon(symbol: string): string {
   if (symbol === 'debug') {
-    return chalk.grey(figures.questionMarkPrefix);
+    return chalk.grey(figures.pointerSmall);
   }
   return (logSymbols as any)[symbol];
 }

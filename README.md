@@ -10,7 +10,7 @@
 
 Node.js log utility for terminal output.
 
-![log-util](doc/log-util.png)
+![log-util](docs/log-util.png)
 
 ## usage
 
