@@ -4,13 +4,15 @@
  */
 
 import test from 'ava';
+import chalk from 'chalk';
+import * as figures from 'figures';
 import * as logSymbol from 'log-symbols';
 import * as log from '../index';
 
 let __memo__: any[] = [];
 let globalConsoleLog = global.console.log;
 
-test.beforeEach((t) => {
+test.beforeEach(() => {
   global.console.log = function mockConsoleLog(...messages: any[]) {
     __memo__ = __memo__.concat(messages);
   };
@@ -21,6 +23,16 @@ test.afterEach(() => {
     __memo__.pop();
   }
   global.console.log = globalConsoleLog;
+});
+
+test('should output debug levels', (t) => {
+  log.setLevel(log.levels.debug);
+  log.debug('debug', log.levels.debug);
+  t.deepEqual(__memo__, [
+    chalk.grey(figures.questionMarkPrefix),
+    'debug',
+    log.levels.debug,
+  ]);
 });
 
 test('should output info levels', (t) => {
@@ -43,8 +55,24 @@ test('should output error levels', (t) => {
   t.deepEqual(__memo__, [logSymbol.error, 'error', log.levels.error]);
 });
 
+test('should follow log level info', (t) => {
+  log.setLevel(log.levels.info);
+  log.debug();
+  log.info();
+  log.success();
+  log.warn();
+  log.error();
+  t.deepEqual(__memo__, [
+    logSymbol.info,
+    logSymbol.success,
+    logSymbol.warning,
+    logSymbol.error,
+  ]);
+});
+
 test('should follow log level success', (t) => {
   log.setLevel(log.levels.success);
+  log.debug();
   log.info();
   log.success();
   log.warn();
@@ -58,6 +86,7 @@ test('should follow log level success', (t) => {
 
 test('should follow log level warn', (t) => {
   log.setLevel(log.levels.warn);
+  log.debug();
   log.info();
   log.success();
   log.warn();
@@ -67,6 +96,7 @@ test('should follow log level warn', (t) => {
 
 test('should follow log level error', (t) => {
   log.setLevel(log.levels.error);
+  log.debug();
   log.info();
   log.success();
   log.warn();

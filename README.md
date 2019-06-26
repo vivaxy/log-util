@@ -18,10 +18,11 @@ Node.js log utility for terminal output.
 
 ```
 var log = require('log-util');
-log.info('info', 0);
-log.success('success', 1);
-log.warn('warn', 2);
-log.error('error', 3);
+log.debug('debug', 0);
+log.info('info', 1);
+log.success('success', 2);
+log.warn('warn', 3);
+log.error('error', 4);
 ```
 
 ## api
@@ -35,10 +36,11 @@ log.error('error', 3);
 ## log levels
 
 ```
-log.levels.info === 0;
-log.levels.success === 1;
-log.levels.warn === 2;
-log.levels.error === 3;
+log.levels.debug === 0;
+log.levels.info === 1;
+log.levels.success === 2;
+log.levels.warn === 3;
+log.levels.error === 4;
 ```
 
 [npm-version-image]: http://img.shields.io/npm/v/log-util.svg?style=flat-square

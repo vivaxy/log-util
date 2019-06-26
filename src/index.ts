@@ -3,38 +3,49 @@
  * @author vivaxy
  */
 
+import chalk from 'chalk';
 import * as util from 'util';
+import * as figures from 'figures';
 import * as logSymbols from 'log-symbols';
 
-let currentLevel: number = 0;
+export let level: number = 1;
 
-function createLogger(level: number, symbol: string) {
+function getIcon(symbol: string): string {
+  if (symbol === 'debug') {
+    return chalk.grey(figures.questionMarkPrefix);
+  }
+  return (logSymbols as any)[symbol];
+}
+
+function createLogger(_level: number, symbol: string) {
   return function(...messages: any[]): void {
-    const formatted = messages.map(function(message) {
-      if (typeof message === 'object') {
-        return util.inspect(message, {
-          depth: null,
-        });
-      }
-      return message;
-    });
-    if (level >= currentLevel) {
-      console.log((logSymbols as any)[symbol], ...formatted);
+    if (_level >= level) {
+      const formatted = messages.map(function(message) {
+        if (typeof message === 'object') {
+          return util.inspect(message, {
+            depth: null,
+          });
+        }
+        return message;
+      });
+      console.log(getIcon(symbol), ...formatted);
     }
   };
 }
 
 export enum levels {
-  info = 0,
-  success = 1,
-  warn = 2,
-  error = 3,
+  debug = 0,
+  info = 1,
+  success = 2,
+  warn = 3,
+  error = 4,
 }
 
-export function setLevel(level: levels): void {
-  currentLevel = level;
+export function setLevel(_level: levels): void {
+  level = _level;
 }
 
+export const debug = createLogger(levels.debug, 'debug');
 export const info = createLogger(levels.info, 'info');
 export const success = createLogger(levels.success, 'success');
 export const warn = createLogger(levels.warn, 'warning');
