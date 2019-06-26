@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/vivaxy/log-util/compare/v2.0.0...v2.1.0) (2019-06-26)
+
+
+### Features
+
+* **types:** :label: Add types ([29e79b1](https://github.com/vivaxy/log-util/commit/29e79b1))
+
+
+
 ## [2.0.0](https://github.com/vivaxy/log-util/compare/v1.2.0...v2.0.0) (2019-06-26)
 
 
