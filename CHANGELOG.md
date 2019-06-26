@@ -1,6 +1,20 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [2.0.0](https://github.com/vivaxy/log-util/compare/v1.2.0...v2.0.0) (2019-06-26)
+
+
+### Features
+
+* **core:** :recycle: Completely rewrite ([cfd8e8c](https://github.com/vivaxy/log-util/commit/cfd8e8c))
+
+
+### BREAKING CHANGES
+
+* **core:** All changed.
+
+
 
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/vivaxy/log-util/compare/v1.1.1...v1.2.0) (2017-05-04)
