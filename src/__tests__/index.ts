@@ -29,7 +29,7 @@ test('should output debug levels', (t) => {
   log.setLevel(log.levels.debug);
   log.debug('debug', log.levels.debug);
   t.deepEqual(__memo__, [
-    chalk.grey(figures.questionMarkPrefix),
+    chalk.grey(figures.pointerSmall),
     'debug',
     log.levels.debug,
   ]);
