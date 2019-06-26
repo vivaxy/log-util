@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.1](https://github.com/vivaxy/log-util/compare/v2.2.0...v2.2.1) (2019-06-26)
+
+
+### Bug Fixes
+
+* **level:** :bug: Update default level ([6c67526](https://github.com/vivaxy/log-util/commit/6c67526))
+
+
+### Tests
+
+* **test:** :white_check_mark: Fix debug level ([f59c4c6](https://github.com/vivaxy/log-util/commit/f59c4c6))
+
+
+
 ## [2.2.0](https://github.com/vivaxy/log-util/compare/v2.1.0...v2.2.0) (2019-06-26)
 
 
