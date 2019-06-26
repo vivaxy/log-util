@@ -32,40 +32,13 @@ log.error('error', 3);
 
 ### `new log.Log(0) => log`
 
-### `log.levels`
+## log levels
 
 ```
-levels = [
-  {
-    level: 0,
-    name: 'info',
-    color: 'grey',
-  },
-  {
-    level: 1,
-    name: 'success',
-    color: 'green',
-  },
-  {
-    level: 2,
-    name: 'warn',
-    color: 'yellow',
-  },
-  {
-    level: 3,
-    name: 'error',
-    color: 'red',
-  }
-];
-```
-
-## log level
-
-```
-log.Log.INFO === 0;
-log.Log.SUCCESS === 1;
-log.Log.WARN === 2;
-log.Log.ERROR === 3;
+log.levels.info === 0;
+log.levels.success === 1;
+log.levels.warn === 2;
+log.levels.error === 3;
 ```
 
 [npm-version-image]: http://img.shields.io/npm/v/log-util.svg?style=flat-square
