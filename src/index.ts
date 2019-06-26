@@ -8,16 +8,26 @@ import * as util from 'util';
 import * as figures from 'figures';
 import * as logSymbols from 'log-symbols';
 
-export let level: number = 0;
+export enum levels {
+  debug = 0,
+  info = 1,
+  success = 2,
+  warn = 3,
+  error = 4,
+}
 
-function getIcon(symbol: string): string {
+export let level: levels = 0;
+
+type Symbol = keyof typeof logSymbols | 'debug';
+
+function getIcon(symbol: Symbol): string {
   if (symbol === 'debug') {
     return chalk.grey(figures.pointerSmall);
   }
-  return (logSymbols as any)[symbol];
+  return logSymbols[symbol];
 }
 
-function createLogger(_level: number, symbol: string) {
+function createLogger(_level: levels, symbol: Symbol) {
   return function(...messages: any[]): void {
     if (_level >= level) {
       const formatted = messages.map(function(message) {
@@ -31,14 +41,6 @@ function createLogger(_level: number, symbol: string) {
       console.log(getIcon(symbol), ...formatted);
     }
   };
-}
-
-export enum levels {
-  debug = 0,
-  info = 1,
-  success = 2,
-  warn = 3,
-  error = 4,
 }
 
 export function setLevel(_level: levels): void {
