@@ -8,7 +8,7 @@ import * as util from 'util';
 import * as figures from 'figures';
 import * as logSymbols from 'log-symbols';
 
-export let level: number = 1;
+export let level: number = 0;
 
 function getIcon(symbol: string): string {
   if (symbol === 'debug') {
