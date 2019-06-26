@@ -50,6 +50,9 @@
     }
   },
   "ava": {
+    "files": [
+      "src/__tests__/**/*.ts"
+    ],
     "compileEnhancements": false,
     "extensions": [
       "ts"
