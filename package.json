@@ -22,7 +22,7 @@
   "scripts": {
     "build": "tsc",
     "test": "ava -s",
-    "release": "npm test && npm run build && standard-version && git push --follow-tags && npm publish"
+    "release": "npm test && npm run build && standard-version && git push --follow-tags && npm publish --registry=\"https://registry.npmjs.org/\""
   },
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",
