@@ -8,27 +8,23 @@ import * as util from 'util';
 import * as figures from 'figures';
 import * as logSymbols from 'log-symbols';
 
-export enum levels {
-  debug = 0,
-  info = 1,
-  success = 2,
-  warn = 3,
-  error = 4,
-}
+export let levels = {
+  debug: 0,
+  info: 1,
+  success: 2,
+  warn: 3,
+  error: 4,
+};
 
-export let level: levels = 0;
+export let level: number = 0;
 
-type Symbol = keyof typeof logSymbols | 'debug';
-
-function getIcon(symbol: Symbol): string {
-  if (symbol === 'debug') {
-    return chalk.grey(figures.pointerSmall);
-  }
-  return logSymbols[symbol];
-}
-
-function createLogger(_level: levels, symbol: Symbol) {
-  return function(...messages: any[]): void {
+/**
+ * You can create your own logger with namespace and logLevel
+ * @param _level
+ * @param namespace
+ */
+export function createLogger(_level: number, namespace: string) {
+  return function log(...messages: any[]): void {
     if (_level >= level) {
       const formatted = messages.map(function(message) {
         if (typeof message === 'object') {
@@ -38,17 +34,21 @@ function createLogger(_level: levels, symbol: Symbol) {
         }
         return message;
       });
-      console.log(getIcon(symbol), ...formatted);
+      console.log(namespace, ...formatted);
     }
   };
 }
 
-export function setLevel(_level: levels): void {
+export function setLevel(_level: number): void {
   level = _level;
 }
 
-export const debug = createLogger(levels.debug, 'debug');
-export const info = createLogger(levels.info, 'info');
-export const success = createLogger(levels.success, 'success');
-export const warn = createLogger(levels.warn, 'warning');
-export const error = createLogger(levels.error, 'error');
+// basic usage
+export const debug = createLogger(
+  levels.debug,
+  chalk.grey(figures.pointerSmall)
+);
+export const info = createLogger(levels.info, logSymbols.info);
+export const success = createLogger(levels.success, logSymbols.success);
+export const warn = createLogger(levels.warn, logSymbols.warning);
+export const error = createLogger(levels.error, logSymbols.error);
