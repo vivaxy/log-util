@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/vivaxy/log-util#readme",
   "dependencies": {
-    "chalk": "^2.4.2",
+    "chalk": "^4.0.0",
     "figures": "^3.0.0",
     "log-symbols": "^3.0.0"
   },
